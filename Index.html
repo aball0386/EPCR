@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SECAmb PCR Form PWA</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#004c73" />
+</head>
+<body>
+<header>
+  <h1>SECAmb Patient Care Report (PCR)</h1>
+</header>
+
+<main>
+  <form id="pcrForm" autocomplete="off" novalidate>
+
+    <section class="form-section">
+      <h2>Incident Details</h2>
+      <label for="incidentDate">Incident Date</label>
+      <input type="date" id="incidentDate" name="incidentDate" required />
+
+      <label for="incidentNumber">Incident Number</label>
+      <input type="text" id="incidentNumber" name="incidentNumber" />
+
+      <label for="callSignLetter">Call Sign Letter</label>
+      <input type="text" id="callSignLetter" name="callSignLetter" maxlength="1" />
+
+      <label for="callSignNumber">Call Sign Number</label>
+      <input type="text" id="callSignNumber" name="callSignNumber" />
+
+      <label for="baseOUTalkGroup">Base OU Talk Group</label>
+      <input type="text" id="baseOUTalkGroup" name="baseOUTalkGroup" />
+
+      <label for="personnelNumber">Personnel Number</label>
+      <input type="text" id="personnelNumber" name="personnelNumber" />
+
+      <label for="grade">Grade</label>
+      <select id="grade" name="grade" required>
+        <option value="">-- Select Grade --</option>
+        <option value="DR">Doctor</option>
+        <option value="CO">Consultant Paramedic</option>
+        <option value="CP">Critical Care Paramedic</option>
+        <option value="PP">Paramedic Practitioner</option>
+        <option value="EP">Experienced Paramedic</option>
+        <option value="NP">Newly Qualified Paramedic</option>
+        <option value="SP">Student Paramedic</option>
+        <option value="AT">Technician</option>
+        <option value="AP">Associate Practitioner</option>
+        <option value="AA">Associate Ambulance Practitioner</option>
+        <option value="TP">Trainee Associate Ambulance Practitioner</option>
+        <option value="ES">Emergency Care Support Worker</option>
+        <option value="CR">Community First Responder</option>
+        <option value="FR">Fire Responder</option>
+        <option value="MW">Midwife</option>
+        <option value="NU">Nurse</option>
+      </select>
+    </section>
+
+    <section class="form-section">
+      <h2>Patient Details</h2>
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" name="firstName" required />
+
+      <label for="surname">Surname</label>
+      <input type="text" id="surname" name="surname" required />
+
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender" required>
+        <option value="">-- Select Gender --</option>
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+        <option value="U">Unknown</option>
+        <option value="O">Other</option>
+      </select>
+
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" name="dob" />
+
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age" min="0" max="120" />
+
+      <label for="ethnicCode">Ethnic Code</label>
+      <input type="text" id="ethnicCode" name="ethnicCode" maxlength="10" />
+
+      <label for="postcode">Postcode</label>
+      <input type="text" id="postcode" name="postcode" maxlength="8" />
+
+      <label for="nhsNumber">NHS Number</label>
+      <input type="text" id="nhsNumber" name="nhsNumber" maxlength="10" />
+    </section>
+
+    <section class="form-section">
+      <h2>Times</h2>
+      <label for="callTime">Call Time</label>
+      <input type="time" id="callTime" name="callTime" />
+
+      <label for="atScene">At Scene</label>
+      <input type="time" id="atScene" name="atScene" />
+
+      <label for="atPatient">At Patient</label>
+      <input type="time" id="atPatient" name="atPatient" />
+
+      <label for="leftScene">Left Scene</label>
+      <input type="time" id="leftScene" name="leftScene" />
+
+      <label for="timeAtHospital">Time at Hospital</label>
+      <input type="time" id="timeAtHospital" name="timeAtHospital" />
+    </section>
+
+    <section class="form-section">
+      <h2>Clinical Observations</h2>
+      <label for="airway">Airway</label>
+      <select id="airway" name="airway">
+        <option value="">-- Select --</option>
+        <option value="Clear">Clear</option>
+        <option value="Obstruction">Obstruction</option>
+      </select>
+
+      <label>Initial Presenting Rhythm</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="initialRhythm" value="VF/VT" /> VF/VT</label>
+        <label><input type="checkbox" name="initialRhythm" value="PEA" /> PEA</label>
+        <label><input type="checkbox" name="initialRhythm" value="Asystole" /> Asystole</label>
+        <label><input type="checkbox" name="initialRhythm" value="Other" /> Other</label>
+      </div>
+
+      <label for="ecgInterpretation">ECG Interpretation</label>
+      <input type="text" id="ecgInterpretation" name="ecgInterpretation" />
+
+      <label for="clinicalLead">Clinical Lead Name/Signature</label>
+      <input type="text" id="clinicalLead" name="clinicalLead" />
+
+      <label for="wardDept">Ward/Dept</label>
+      <input type="text" id="wardDept" name="wardDept" />
+    </section>
+
+    <section class="form-section">
+      <h2>Patient Condition & Observations</h2>
+
+      <label for="mentalCapacityConcern">Mental Capacity Concern</label>
+      <select id="mentalCapacityConcern" name="mentalCapacityConcern">
+        <option value="">-- Select --</option>
+        <option value="Y">Yes</option>
+        <option value="N">No</option>
+      </select>
+
+      <label for="safeguardingConcern">Safeguarding Concern</label>
+      <select id="safeguardingConcern" name="safeguardingConcern">
+        <option value="">-- Select --</option>
+        <option value="Y">Yes</option>
+        <option value="N">No</option>
+      </select>
+
+      <label>Learning Disability</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="disabilities" value="Learning Disability" /> Yes</label>
+      </div>
+      <label>Physical Disability</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="disabilities" value="Physical Disability" /> Yes</label>
+      </div>
+      <label>Communication Difficulties</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="disabilities" value="Communication Difficulties" /> Yes</label>
+      </div>
+
+      <label for="presentingComplaint">Presenting Complaint</label>
+      <textarea id="presentingComplaint" name="presentingComplaint" rows="3"></textarea>
+
+      <label for="resps">Respirations</label>
+      <input type="number" id="resps" name="resps" min="0" max="100" />
+
+      <label for="spo2">SPO2 (%)</label>
+      <input type="number" id="spo2" name="spo2" min="0" max="100" />
+
+      <label for="onAir">On Air / Oxygen</label>
+      <select id="onAir" name="onAir">
+        <option value="">-- Select --</option>
+        <option value="Air">Air</option>
+        <option value="Oxygen">Oxygen</option>
+      </select>
+
+      <label for="peakFlow">Peak Flow</label>
+      <input type="number" id="peakFlow" name="peakFlow" min="0" max="1000" />
+
+      <label for="etco2">EtCO2</label>
+      <input type="number" id="etco2" name="etco2" min="0" max="100" />
+
+      <label for="systolicBP">Systolic BP</label>
+      <input type="number" id="systolicBP" name="systolicBP" min="0" max="300" />
+
+      <label for="heartRate">Heart Rate</label>
+      <input type="number" id="heartRate" name="heartRate" min="0" max="300" />
+
+      <label for="diastolicBP">Diastolic BP</label>
+      <input type="number" id="diastolicBP" name="diastolicBP" min="0" max="200" />
+
+      <label for="temperature">Temperature (°C)</label>
+      <input type="number" id="temperature" name="temperature" step="0.1" min="20" max="45" />
+
+      <label for="bloodGlucose">Blood Glucose</label>
+      <input type="number" id="bloodGlucose" name="bloodGlucose" min="0" max="40" step="0.1" />
+
+      <label for="pupilReaction">Pupil Reaction</label>
+      <select id="pupilReaction" name="pupilReaction">
+        <option value="">-- Select --</option>
+        <option value="S">Slow</option>
+        <option value="N">Normal</option>
+        <option value="F">Fixed</option>
+        <option value="U">Unable to Assess</option>
+      </select>
+
+      <label for="gcs">GCS (E+V+M)</label>
+      <input type="text" id="gcs" name="gcs" maxlength="5" placeholder="e.g. 4+5+6" />
+
+      <label for="painScore">Pain Score</label>
+      <input type="number" id="painScore" name="painScore" min="0" max="10" />
+
+      <label for="news2">NEWS 2</label>
+      <input type="number" id="news2" name="news2" min="0" max="20" />
+    </section>
+
+    <section class="form-section">
+      <h2>Consent & Primary Survey</h2>
+
+      <label for="primarySurvey">Primary Survey Completed</label>
+      <select id="primarySurvey" name="primarySurvey" required>
+        <option value="">-- Select --</option>
+        <option value="Y">Yes</option>
+        <option value="N">No</option>
+      </select>
+
+      <label for="consentCatastrophicHaemorrhage">Consent Catastrophic Haemorrhage</label>
+      <select id="consentCatastrophicHaemorrhage" name="consentCatastrophicHaemorrhage" required>
+        <option value="">-- Select --</option>
+        <option value="Y">Yes</option>
+        <option value="N">No</option>
+      </select>
+
+      <label for="breathing">Breathing</label>
+      <select id="breathing" name="breathing">
+        <option value="">-- Select --</option>
+        <option value="Present">Present</option>
+        <option value="Ineffective">Ineffective</option>
+        <option value="Absent">Absent</option>
+      </select>
+
+      <label for="circulation">Circulation</label>
+      <select id="circulation" name="circulation">
+        <option value="">-- Select --</option>
+        <option value="Peripheral">Peripheral</option>
+        <option value="Central Only">Central Only</option>
+        <option value="Absent">Absent</option>
+      </select>
+
+      <label for="alertness">Alertness (ACVPU)</label>
+      <select id="alertness" name="alertness">
+        <option value="">-- Select --</option>
+        <option value="A">Alert</option>
+        <option value="C">Confused</option>
+        <option value="V">Voice responsive</option>
+        <option value="P">Pain responsive</option>
+        <option value="U">Unresponsive</option>
+      </select>
+    </section>
+
+    <section class="form-section">
+      <h2>Additional Notes</h2>
+      <label for="patientAssessment">Patient Assessment / Additional Info</label>
+      <textarea id="patientAssessment" name="patientAssessment" rows="5" placeholder="History of Presenting Complaint, Past Medical History, Meds, Allergies, etc."></textarea>
+    </section>
+
+    <button type="submit">Save Form</button>
+    <button type="button" id="resetBtn">Reset Form</button>
+  </form>
+</main>
+
+<footer>
+  <p>SECAmb PCR Form PWA &copy; 2025</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
